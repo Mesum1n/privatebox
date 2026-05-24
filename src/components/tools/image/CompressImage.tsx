@@ -20,7 +20,7 @@ import { Button, Slider, Select, SectionLabel } from '@/components/ui/primitives
 import { useFileProcessor } from '@/hooks/useFileProcessor'
 import { compressImage, mimeToExtension } from '@/lib/utils/image-processing'
 import { validateImageFile, changeExtension, formatBytes, downloadBlob } from '@/lib/utils/file'
-import { notifySuccess, notifyError } from '@/store'
+import { notifySuccess } from '@/store'
 import type { ImageOutputFormat, ProcessedResult } from '@/types'
 
 const FORMAT_OPTIONS = [

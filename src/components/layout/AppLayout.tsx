@@ -16,7 +16,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import clsx from 'clsx'
 import {
-  Shield, Image, FileText, Menu, X,
+  Shield, Image, FileText, Menu, 
   Minimize2, Scaling, RefreshCw, Crop,
   FilePlus2, Scissors, GripVertical, Archive
 } from 'lucide-react'

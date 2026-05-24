@@ -15,7 +15,7 @@
  * using pdfjs for writing is unsupported. Each lib does what it's best at.
  */
 
-import { PDFDocument, degrees } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib'
 import type { MergePdfOptions, SplitPdfOptions, ReorderPdfOptions, PageRange } from '@/types'
 import { readFileAsArrayBuffer } from './file'
 
@@ -43,7 +43,7 @@ export async function mergePdfs(options: MergePdfOptions): Promise<Blob> {
   }
 
   const pdfBytes = await merged.save()
-  return new Blob([pdfBytes], { type: 'application/pdf' })
+  return new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' })
 }
 
 // ─── PDF split ────────────────────────────────────────────────────────────────
@@ -76,7 +76,7 @@ export async function splitPdf(
     const pdfBytes = await part.save()
     const label    = range.label ?? `part-${i + 1}`
     results.push({
-      blob:     new Blob([pdfBytes], { type: 'application/pdf' }),
+      blob:     new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' }),
       filename: `${baseName}_${label}.pdf`,
     })
   }
@@ -115,7 +115,7 @@ export async function reorderPdf(file: File, options: ReorderPdfOptions): Promis
   pages.forEach(p => output.addPage(p))
 
   const pdfBytes = await output.save()
-  return new Blob([pdfBytes], { type: 'application/pdf' })
+  return new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' })
 }
 
 // ─── PDF compression ──────────────────────────────────────────────────────────
@@ -157,7 +157,7 @@ export async function compressPdf(file: File): Promise<Blob> {
     addDefaultPage: false,
   })
 
-  return new Blob([pdfBytes], { type: 'application/pdf' })
+  return new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' })
 }
 
 // ─── Page count utility ───────────────────────────────────────────────────────

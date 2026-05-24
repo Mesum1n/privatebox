@@ -15,7 +15,7 @@ import { splitPdf, reorderPdf, compressPdf, getPdfPageCount, renderPdfPages } fr
 import { validateImageFile, validatePdfFile, changeExtension, downloadBlob, formatBytes } from '@/lib/utils/file'
 import { notifySuccess, notifyError } from '@/store'
 import type { ImageOutputFormat, ProcessedResult, PageRange } from '@/types'
-import clsx from 'clsx'
+
 
 const FORMAT_OPTIONS = [
   { value: 'image/jpeg', label: 'JPEG' },
@@ -51,7 +51,7 @@ export function ResizeImageTool() {
     return { blob, filename: changeExtension(file.name, mimeToExtension(format)), size: blob.size, originalSize: file.size }
   }, [width, height, lock, format, quality])
 
-  const { files, isProcessing, isDone, addFiles, removeFile, clearFiles, processFiles } =
+  const { files, isProcessing, addFiles, removeFile, clearFiles, processFiles } =
     useFileProcessor({ validate: f => validateImageFile(f), processor })
 
   return (

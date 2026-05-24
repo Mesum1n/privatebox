@@ -117,8 +117,10 @@ export function HomePage() {
 
       {/* Footer note */}
       <p className="text-xs text-text-muted text-center pb-4">
-        Open source · Built with React + Vite · Runs 100% in-browser
-      </p>
+  Open source · Built with React + Vite · Runs 100% in-browser
+  <br />
+  <span className="text-accent">Built with ❤️ by Suman Bera</span>
+</p>
     </div>
   )
 }

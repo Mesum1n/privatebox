@@ -104,6 +104,11 @@ function Sidebar({ onNavClick }: SidebarProps) {
 
       {/* Privacy badge */}
       <div className="p-3 border-t border-border-subtle">
+        <div className="px-4 pb-3 text-center">
+        <p className="text-2xs text-text-muted">
+          Built with ❤️ by <span className="text-accent">Suman Bera</span>
+        </p>
+      </div>
         <div className="flex items-center gap-2 px-2 py-2 rounded-tool bg-accent/5 border border-accent/15">
           <Shield size={12} className="text-accent shrink-0" />
           <p className="text-2xs text-accent/80 leading-snug">
